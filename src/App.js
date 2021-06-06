@@ -6,6 +6,7 @@ import PostList from './components/PostList';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import PostFiltersForm from './components/PostFiltersForm';
+import Clock from './components/Clock';
 
 function App() {
     const [todoList, setTodoList] = useState([
@@ -27,6 +28,10 @@ function App() {
         _page: 1,
         title_like: '',
     })
+
+    const [showClock, setShowClock] = useState(true);
+
+
 
     useEffect(() => {
         async function fetchPostList() {
@@ -95,6 +100,9 @@ function App() {
             <PostFiltersForm onSubmit={handleFiltersChange} />
             <PostList posts={postList} />
             <Pagination pagination={pagination} onPageChange={handlePageChange} />
+            <h4>UseEffect cleanup với code đồng hồ</h4>
+            <button onClick={() => setShowClock(false)}>Hide Clock</button>
+            {showClock && <Clock />}
         </div>
     );
 }
