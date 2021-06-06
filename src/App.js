@@ -7,6 +7,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import PostFiltersForm from './components/PostFiltersForm';
 import Clock from './components/Clock';
+import BetterClock from './components/BetterClock';
 
 function App() {
     const [todoList, setTodoList] = useState([
@@ -103,6 +104,8 @@ function App() {
             <h4>UseEffect cleanup với code đồng hồ</h4>
             <button onClick={() => setShowClock(false)}>Hide Clock</button>
             {showClock && <Clock />}
+            <h4>Better Clock</h4>
+            <BetterClock />
         </div>
     );
 }
