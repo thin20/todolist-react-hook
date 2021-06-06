@@ -8,6 +8,7 @@ import TodoList from './components/TodoList';
 import PostFiltersForm from './components/PostFiltersForm';
 import Clock from './components/Clock';
 import BetterClock from './components/BetterClock';
+import Hero from './components/Hero';
 
 function App() {
     const [todoList, setTodoList] = useState([
@@ -32,7 +33,11 @@ function App() {
 
     const [showClock, setShowClock] = useState(true);
 
+    const [count, setCount] = useState(0);
 
+    function handleIncrementCount() {
+        setCount(count + 1);
+    }
 
     useEffect(() => {
         async function fetchPostList() {
@@ -106,6 +111,7 @@ function App() {
             {showClock && <Clock />}
             <h4>Better Clock</h4>
             <BetterClock />
+            <Hero count={count} incrementCount={handleIncrementCount} />
         </div>
     );
 }
